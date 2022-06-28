@@ -31,23 +31,36 @@ int main()
     freopen("../Utilities/output.txt", "w", stdout);
 #endif
 
-    int n, m;
-    scanf("%d %d", &n, &m);
+    char s[100];
+    scanf("%s", s);
+    int n = strlen(s);
+    int l = (n + 1) / 2;
+    int arr[l];
 
-    int arr[n];
-    for (int i = 0; i < n; i++)
+    for (int i = 0, j = 0; i < n; i++)
     {
-        scanf("%d", &arr[i]);
-    }
-    selectionSort(arr, n);
-
-    int sum = 0;
-    for (int i = 0; i < m; i++)
-    {
-        if(arr[i]<0){
-            sum += arr[i];
+        if (i % 2 == 0)
+        {
+            int x = s[i] - '0';
+            arr[j] = x;
+            j++;
         }
-        
     }
-    printf("%d", abs(sum));
+    selectionSort(arr, l);
+    char newstr[n];
+
+    for(int i=0,j=0;i<n;i++){
+        if(i%2==0){
+            char c=arr[i/2] + '0';
+            newstr[j] =c ;
+        }
+        else{
+            newstr[j] = '+';
+        }
+        j++;
+    }
+
+    for(int i=0;i<n;i++){
+        printf("%c",newstr[i]);
+    }
 }
