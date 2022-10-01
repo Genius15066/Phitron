@@ -1,6 +1,18 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+void printArray(int arr[], int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout<<endl;
+
+}
+
+
+
 void insertion_sort(int arr[], int n)
 {
     for (int i = 1; i < n; i++)
@@ -13,8 +25,10 @@ void insertion_sort(int arr[], int n)
             j--;
         }
         arr[j + 1] = key;
+        printArray(arr,n);
     }
 }
+
 
 
 
